@@ -1398,7 +1398,7 @@
       "OnDeleteClick",
       "OnCancelClick"
     ],
-    "LastModifiedTimestamp": "638479044190253929",
+    "LastModifiedTimestamp": "638479048333413287",
     "Name": "DeletePopUp",
     "Rules": [
       {
@@ -1496,7 +1496,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638479044190253929",
+  "LastModifiedTimestamp": "638479048333413287",
   "Name": "2361911a957841daa7038049c873bcbe",
   "OverridableProperties": {},
   "Version": "638239635038226816"
