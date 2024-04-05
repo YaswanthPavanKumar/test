@@ -1,0 +1,115 @@
+{
+  "9012750a-8f0f-48ee-a6ff-1a77ead36747": {
+    "appActions": [
+      "Run"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1680/1.0.1680.3652/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "af501742-b38f-41dd-a9ca-0d753000353b": {
+          "value": "shared_gmail"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "de26bce7-88b8-4963-b02f-778ff93056a3"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_gmail": {
+          "value": "af501742-b38f-41dd-a9ca-0d753000353b"
+        },
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "de26bce7-88b8-4963-b02f-778ff93056a3"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "Sendanemailnotification"
+    ],
+    "dependencies": {
+      "shared_gmail": "af501742-b38f-41dd-a9ca-0d753000353b"
+    },
+    "dependents": [],
+    "id": "9012750a-8f0f-48ee-a6ff-1a77ead36747"
+  },
+  "af501742-b38f-41dd-a9ca-0d753000353b": {
+    "appActions": [],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "authenticationType": "shared-application",
+      "displayName": "Gmail",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1677/1.0.1677.3637/gmail/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_gmail",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [],
+    "dependencies": {},
+    "dependents": [
+      "9012750a-8f0f-48ee-a6ff-1a77ead36747"
+    ],
+    "id": "af501742-b38f-41dd-a9ca-0d753000353b"
+  },
+  "bee7000c-dcd6-4fb3-904f-baaa1cd81bc8": {
+    "appActions": [
+      "providers/PowerPlatform.Governance/Operations/Read",
+      "providers/PowerPlatform.Governance/Operations/Write",
+      "providers/PowerPlatform.Governance/Operations/Delete"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1682/1.0.1682.3675/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {
+      "https://4jc56t.sharepoint.com/sites/Leaves": {
+        "dataSources": {
+          "Approver": {
+            "tableName": "a0a8a71e-77f6-41d3-9f37-f0a5fabb2b7f"
+          },
+          "Leaves": {
+            "tableName": "cb88d5b0-bcc1-40e3-9e48-55d4d247240a"
+          },
+          "Users": {
+            "tableName": "29dbaee8-b8fd-4156-835d-ce90d295eae6"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "Leaves",
+      "Approver",
+      "Users"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "bee7000c-dcd6-4fb3-904f-baaa1cd81bc8"
+  },
+  "d7bac3f8-a0d3-420d-8134-b0d651d73cd0": {
+    "appActions": [],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Office 365 Outlook",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1677/1.0.1677.3637/office365/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_office365",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [
+      "Office365Outlook"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "d7bac3f8-a0d3-420d-8134-b0d651d73cd0"
+  }
+}

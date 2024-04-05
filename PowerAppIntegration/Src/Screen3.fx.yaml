@@ -1,0 +1,288 @@
+"Screen3 As screen.'phoneLayout_FluidGridWithHeaderPageLayout_ver3.0'":
+    OnVisible: |-
+        =ClearCollect (
+            Header,
+            {
+                LeaveType: "Leave Type",
+                PlannedUp: "Planned/Unplanned",
+                Manager: "Approver",
+                SD: "Start Date",
+                Ed: "End Date",
+                Status: "Leave Status",
+                TypeofLeave: "Type of Leave",
+                Department: "Department"
+            }
+        )
+
+    RectQuickActionBar2 As rectangle:
+        Height: =88
+        Width: =Parent.Width
+        ZIndex: =1
+
+    LblAppName2 As label:
+        Align: =Align.Center
+        Height: =88
+        Text: ="List"
+        Width: =Parent.Width
+        ZIndex: =2
+
+    Canvas2 As fluidGrid.fluidGridWithBlankCard:
+        BorderThickness: =0
+        Height: =Parent.Height - Self.Y
+        Width: =Parent.Width
+        Y: =RectQuickActionBar2.Y + RectQuickActionBar2.Height
+        ZIndex: =3
+
+        DataCard3 As dataCard:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderStyle: =BorderStyle.Solid
+            BorderThickness: =0
+            DisplayMode: =DisplayMode.Edit
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =394
+            Width: =Parent.Width
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+            Gallery12 As gallery.galleryVertical:
+                DelayItemLoading: =true
+                Height: =500
+                Items: =Leaves
+                Layout: =Layout.Vertical
+                LoadingSpinner: =LoadingSpinner.Data
+                TemplateFill: |
+                    =Switch(
+                        ThisItem.'Leave Status'.Value,
+                        "Approved",
+                        Color.DarkGreen,
+                        "Rejected",
+                        Color.Red
+                    ,
+                    If(ThisItem.IsSelected, RGBA(224, 224, 224, 100), RGBA(224, 224, 224, 0))
+                    )
+                TemplateSize: =91
+                Width: =1366
+                Y: =84
+                ZIndex: =1
+
+                Label68 As label:
+                    Height: =60
+                    OnSelect: =Select(Parent)
+                    Text: =ThisItem.Title
+                    Width: =180
+                    X: =10
+                    Y: =29
+                    ZIndex: =1
+
+                Label69 As label:
+                    Height: =Label68.Height
+                    OnSelect: =Select(Parent)
+                    Text: =ThisItem.Department.Value
+                    Width: =130
+                    X: =Label74.Width+Label74.X
+                    Y: =Label68.Y
+                    ZIndex: =2
+
+                Label70 As label:
+                    Height: =Label68.Height
+                    OnSelect: =Select(Parent)
+                    Text: =ThisItem.'Start Date'
+                    Width: =95
+                    X: =Label78.X+Label78.Width
+                    Y: =Label68.Y
+                    ZIndex: =3
+
+                Label71 As label:
+                    Height: =Label68.Height
+                    OnSelect: =Select(Parent)
+                    Text: =ThisItem.'End Date'
+                    Width: =120
+                    X: =Label70.X+Label70.Width
+                    Y: =Label68.Y
+                    ZIndex: =4
+
+                Label72 As label:
+                    Height: =Label68.Height
+                    OnSelect: =Select(Parent)
+                    Text: =ThisItem.'No Of Days'
+                    Width: =100
+                    X: =Label71.X+Label71.Width
+                    Y: =Label68.Y
+                    ZIndex: =5
+
+                Label73 As label:
+                    Height: =Label68.Height
+                    OnSelect: =Select(Parent)
+                    Text: =ThisItem.'Leave Status'.Value
+                    Width: =90
+                    X: =Label72.X+Label72.Width
+                    Y: =Label68.Y
+                    ZIndex: =6
+
+                Label74 As label:
+                    Height: =Label68.Height
+                    OnSelect: =Select(Parent)
+                    Text: =ThisItem.'Leave Type'.Value
+                    X: =Label73.X+Label73.Width
+                    Y: =Label68.Y
+                    ZIndex: =7
+
+                Label75 As label:
+                    Height: =Label68.Height
+                    OnSelect: =Select(Parent)
+                    Text: =ThisItem.'Select Type'.Value
+                    Width: =180
+                    X: =Label68.X+Label68.Width
+                    Y: =Label68.Y
+                    ZIndex: =8
+
+                Label78 As label:
+                    Height: =Label68.Height
+                    OnSelect: =Select(Parent)
+                    Text: =ThisItem.Manager
+                    Width: =100
+                    X: =Label75.X+Label75.Width
+                    Y: =Label68.Y
+                    ZIndex: =11
+
+                Button6 As button:
+                    Height: =Label68.Height
+                    OnSelect: |-
+                        =EditForm(Form4);
+                        Navigate(
+                            Screen2,
+                            ScreenTransition.Cover,
+                            {SelectedItem: Gallery12.Selected}
+                        )
+                    Text: ="Edit"
+                    Width: =100
+                    X: =Label69.X+Label69.Width
+                    Y: =Label68.Y
+                    ZIndex: =12
+
+            Gallery13 As gallery.galleryVertical:
+                DelayItemLoading: =true
+                Fill: =RGBA(127, 178, 57, 1)
+                Height: =70
+                Items: =Header
+                Layout: =Layout.Vertical
+                LoadingSpinner: =LoadingSpinner.Data
+                TemplateSize: =If(Self.Layout = Layout.Horizontal, Min(280, Self.Width - 60), Min(280, Self.Height - 60))
+                Width: =1366
+                Y: =13
+                ZIndex: =2
+
+            Label83 As label:
+                Font: =Font.'Lato Black'
+                Height: =Label83_5.Height
+                Size: =15
+                Text: ="Desscription"
+                Width: =180
+                Y: =28
+                ZIndex: =3
+
+            Label83_1 As label:
+                Font: =Font.'Lato Black'
+                Height: =Label83_5.Height
+                Size: =15
+                Text: ="Type Of Leave"
+                Width: =180
+                X: =190
+                Y: =Label83.Y
+                ZIndex: =4
+
+            Label83_2 As label:
+                Font: =Font.'Lato Black'
+                Height: =Label83_5.Height
+                Size: =15
+                Text: ="Approver"
+                X: =Label83_1.X+Label83_1.Width
+                Y: =Label83.Y
+                ZIndex: =5
+
+            Label83_3 As label:
+                Font: =Font.'Lato Black'
+                Height: =Label83_5.Height
+                Size: =15
+                Text: ="Start Date"
+                Width: =95
+                X: =470
+                Y: =Label83.Y
+                ZIndex: =6
+
+            Label83_4 As label:
+                Font: =Font.'Lato Black'
+                Height: =Label83_5.Height
+                Size: =15
+                Text: ="End Date"
+                Width: =120
+                X: =Label83_3.X+Label83_3.Width
+                Y: =Label83.Y
+                ZIndex: =7
+
+            Label83_5 As label:
+                Font: =Font.'Lato Black'
+                Height: =60
+                Size: =15
+                Text: ="NO Of Days"
+                Width: =100
+                X: =Label83_4.X+Label83_4.Width
+                Y: =Label83.Y
+                ZIndex: =8
+
+            Label83_6 As label:
+                Font: =Font.'Lato Black'
+                Height: =Label83_5.Height
+                Size: =15
+                Text: ="Status"
+                Width: =90
+                X: =Label83_5.X+Label83_5.Width
+                Y: =Label83.Y
+                ZIndex: =9
+
+            Label83_7 As label:
+                Font: =Font.'Lato Black'
+                Height: =Label83_5.Height
+                Size: =15
+                Text: ="Leave Type"
+                X: =Label83_6.X+Label83_6.Width
+                Y: =28
+                ZIndex: =10
+
+            Label83_8 As label:
+                Font: =Font.'Lato Black'
+                Height: =Label83_5.Height
+                Size: =15
+                Text: ="Department"
+                Width: =130
+                X: =Label83_7.X+Label83_7.Width
+                Y: =Label83.Y
+                ZIndex: =11
+
+            Label83_9 As label:
+                Font: =Font.'Lato Black'
+                Height: =Label83_5.Height
+                Size: =15
+                Text: ="Action"
+                Width: =100
+                X: =Label83_8.X+Label83_8.Width
+                Y: =Label83.Y
+                ZIndex: =12
+
+    Icon1_1 As icon.Home:
+        Fill: =RGBA(232, 244, 217, 1)
+        Icon: =Icon.Home
+        OnSelect: =Navigate(Screen1)
+        X: =1202
+        Y: =12
+        ZIndex: =4
+
+    Icon2_1 As icon.BackArrow:
+        Fill: =RGBA(232, 244, 217, 1)
+        Icon: =Icon.BackArrow
+        OnSelect: =Back(ScreenTransition.Cover)
+        X: =54
+        Y: =12
+        ZIndex: =5
+

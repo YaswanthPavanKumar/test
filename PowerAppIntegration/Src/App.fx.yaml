@@ -1,0 +1,16 @@
+App As appinfo:
+    BackEnabled: =false
+    OnStart: |-
+        =Set(regErrorMessage,false);
+        Set(varRegistrationForm,false);
+        Set(varLoginForm,true);
+        Set(logErrorMessage,false);
+    Theme: =PowerAppsTheme
+
+    Host As hostControl.DefaultHostControlVariant:
+        OnCancel: =false
+        OnEdit: =false
+        OnNew: =false
+        OnSave: =false
+        OnView: =false
+

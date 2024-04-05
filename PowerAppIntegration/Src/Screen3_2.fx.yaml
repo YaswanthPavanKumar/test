@@ -1,0 +1,820 @@
+"Screen3_2 As screen.'phoneLayout_FluidGridWithHeaderPageLayout_ver3.0'":
+    OnVisible: |-
+        =UpdateContext({SortColPref:"Text1"});
+        ClearCollect(LeaveType,{Value:"All Leaves"},Choices([@Leaves].'Leave Type'));
+        ClearCollect(PlannedUnplannedLeave,{Value:"All Leaves Type"},Choices([@Leaves].'Select Type'));
+        ClearCollect(Department,{Value:"All Departments"},Choices([@Leaves].Department));
+        ClearCollect(Status,{Value:"All Status"},Choices([@Leaves].'Leave Status'));
+
+    RectQuickActionBar2_2 As rectangle:
+        Height: =88
+        Width: =Parent.Width
+        ZIndex: =1
+
+    LblAppName2_2 As label:
+        Align: =Align.Center
+        Height: =88
+        Text: ="Leave Applications"
+        Width: =Parent.Width
+        ZIndex: =2
+
+    Canvas2_2 As fluidGrid.fluidGridWithBlankCard:
+        BorderThickness: =0
+        Height: =598
+        Width: =1332
+        X: =16
+        Y: =168
+        ZIndex: =3
+
+        DataCard3_2 As dataCard:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderStyle: =BorderStyle.Solid
+            BorderThickness: =0
+            DisplayMode: =DisplayMode.Edit
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =689
+            Width: =1332
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+            Gallery13_2 As gallery.galleryVertical:
+                DelayItemLoading: =true
+                Fill: =RGBA(202, 202, 202, 1)
+                Height: =90
+                Items: =Header
+                Layout: =Layout.Vertical
+                LoadingSpinner: =LoadingSpinner.Data
+                TemplateSize: =58
+                Width: =1312
+                Y: =12
+                ZIndex: =2
+
+            Label83_23 As label:
+                Font: =Font.'Lato Black'
+                FontWeight: =FontWeight.Bold
+                Height: =Label83_21.Height
+                Size: =15
+                Text: ="Description"
+                Width: =180
+                X: =10
+                Y: =28
+                ZIndex: =3
+
+            Label83_24 As label:
+                Font: =Font.'Lato Black'
+                Height: =Label83_21.Height
+                Size: =15
+                Text: ="Type Of Leave"
+                Width: =180
+                X: =190
+                Y: =Label83_23.Y
+                ZIndex: =4
+
+            Label83_22 As label:
+                Font: =Font.'Lato Black'
+                Height: =Label83_21.Height
+                Size: =15
+                Text: ="Approver"
+                X: =364
+                Y: =24
+                ZIndex: =5
+
+            Label83_20 As label:
+                Font: =Font.'Lato Black'
+                Height: =Label83_21.Height
+                Size: =15
+                Text: ="Start Date"
+                Width: =95
+                X: =480
+                Y: =15
+                ZIndex: =6
+
+            Label83_25 As label:
+                Font: =Font.'Lato Black'
+                Height: =Label83_21.Height
+                Size: =15
+                Text: ="End Date"
+                Width: =120
+                X: =Label83_20.X+Label83_20.Width
+                Y: =Label83_23.Y
+                ZIndex: =7
+
+            Label83_21 As label:
+                Font: =Font.'Lato Black'
+                Height: =60
+                Size: =15
+                Text: ="NO Of Days"
+                Width: =100
+                X: =Label83_25.X+Label83_25.Width
+                Y: =15
+                ZIndex: =8
+
+            Label83_26 As label:
+                Font: =Font.'Lato Black'
+                Height: =Label83_21.Height
+                Size: =15
+                Text: ="Status"
+                Width: =90
+                X: =Label83_21.X+Label83_21.Width
+                Y: =Label83_23.Y
+                ZIndex: =9
+
+            Label83_27 As label:
+                Font: =Font.'Lato Black'
+                Height: =Label83_21.Height
+                Size: =15
+                Text: ="Leave Type"
+                X: =Label83_26.X+Label83_26.Width
+                Y: =28
+                ZIndex: =10
+
+            Label83_28 As label:
+                Font: =Font.'Lato Black'
+                Height: =Label83_21.Height
+                Size: =15
+                Text: ="Department"
+                Width: =130
+                X: =Label83_27.X+Label83_27.Width
+                Y: =Label83_23.Y
+                ZIndex: =11
+
+            Label83_29 As label:
+                Font: =Font.'Lato Black'
+                Height: =Label83_21.Height
+                Size: =15
+                Text: ="Actions"
+                Width: =100
+                X: =1182
+                Y: =Label83_23.Y
+                ZIndex: =12
+
+            Icon3_11 As icon.ArrowsUpDown:
+                Height: =29
+                Icon: =Icon.Sort
+                OnSelect: |-
+                    =UpdateContext({
+                        SortColPref:"Text2",
+                        SortColName:"Manager",
+                        SortDescendingApproverType:!SortDescendingApproverType
+                    })
+                Width: =58
+                X: =440
+                Y: =39
+                ZIndex: =13
+
+            Icon3_12 As icon.ArrowsUpDown:
+                Height: =29
+                Icon: =Icon.Sort
+                OnSelect: |-
+                    =UpdateContext({
+                        SortColPref:"Leave Type",
+                        SortDescendingLeaveType:!SortDescendingLeaveType
+                    })
+                Width: =58
+                X: =306
+                Y: =40
+                ZIndex: =14
+
+            Icon3_13 As icon.ArrowsUpDown:
+                Height: =29
+                Icon: =Icon.Sort
+                OnSelect: |-
+                    =UpdateContext({
+                        SortColPref:"EndDate",
+                        SortDescendingEndDate:!SortDescendingEndDate
+                    })
+                Width: =58
+                X: =646
+                Y: =43
+                ZIndex: =15
+
+            Icon3_15 As icon.ArrowsUpDown:
+                Height: =29
+                Icon: =Icon.Sort
+                OnSelect: |-
+                    =UpdateContext({
+                        SortColPref:"Leave Type Pl",
+                        SortLeaveType:!SortLeaveType
+                    })
+                Width: =58
+                X: =977
+                Y: =46
+                ZIndex: =16
+
+            Icon3_14 As icon.ArrowsUpDown:
+                Height: =29
+                Icon: =Icon.Sort
+                OnSelect: |-
+                    =UpdateContext({
+                        SortColPref:"Status",
+                        SortStatus:!SortStatus
+                    })
+                Width: =58
+                X: =836
+                Y: =43
+                ZIndex: =17
+
+            Icon3_9 As icon.ArrowsUpDown:
+                Height: =29
+                Icon: =Icon.Sort
+                OnSelect: |-
+                    =UpdateContext({
+                        SortColPref:"Days",
+                        SortDays:!SortDays
+                    })
+                Width: =58
+                X: =737
+                Y: =30
+                ZIndex: =18
+
+            Icon3_10 As icon.ArrowsUpDown:
+                Height: =29
+                Icon: =Icon.Sort
+                OnSelect: |-
+                    =UpdateContext({
+                        SortColPref:"StartDate",
+                        SortDescendingStartDate:!SortDescendingStartDate
+                    })
+                Width: =58
+                X: =530
+                Y: =36
+                ZIndex: =19
+
+            Icon3_16 As icon.ArrowsUpDown:
+                Height: =29
+                Icon: =Icon.Sort
+                OnSelect: |-
+                    =UpdateContext({
+                        SortColPref:"Department",
+                        SortDepartment:!SortDepartment
+                    })
+                Width: =58
+                X: =1138
+                Y: =46
+                ZIndex: =20
+
+            Gallery12_4 As gallery.galleryVertical:
+                DelayItemLoading: =true
+                Height: =417
+                Items: |-
+                    =Switch(
+                        SortColPref,
+                        "Text1",
+                        SortByColumns(
+                            Filter(
+                                Leaves,
+                                Substitute(
+                                    Dropdown1_5.SelectedText.Value,
+                                    "All Leaves Type",
+                                    ""
+                                ) in 'Select Type'.Value,
+                                Substitute(
+                                    Dropdown1_6.Selected.Value,
+                                    "All Departments",
+                                    ""
+                                ) in Department.Value,
+                                Substitute(
+                                    Dropdown1_7.Selected.Value,
+                                    "All Status",
+                                    ""
+                                ) in 'Leave Status'.Value,
+                                Substitute(
+                                    Dropdown1_4.Selected.Value,
+                                    "All Leaves",
+                                    ""
+                                ) in 'Leave Type'.Value,
+                                Or(
+                                    TextInput1_1.Text in Title,
+                                    TextInput1_1.Text in Manager
+                                )
+                            ),
+                            SortColName,
+                            If(
+                                SortColType,
+                                SortOrder.Ascending,
+                                SortOrder.Descending
+                            )
+                        ),
+                        "Leave Type",
+                        Sort(
+                            Filter(
+                                Leaves,
+                                Substitute(
+                                    Dropdown1_5.SelectedText.Value,
+                                    "All Leaves Type",
+                                    ""
+                                ) in 'Select Type'.Value,
+                                Substitute(
+                                    Dropdown1_6.Selected.Value,
+                                    "All Departments",
+                                    ""
+                                ) in Department.Value,
+                                Substitute(
+                                    Dropdown1_7.Selected.Value,
+                                    "All Status",
+                                    ""
+                                ) in 'Leave Status'.Value,
+                                Substitute(
+                                    Dropdown1_4.Selected.Value,
+                                    "All Leaves",
+                                    ""
+                                ) in 'Leave Type'.Value,
+                                Or(
+                                    TextInput1_1.Text in Title,
+                                    TextInput1_1.Text in Manager
+                                )
+                            ),
+                            'Select Type'.Value,
+                            If(
+                                SortDescendingLeaveType,
+                                SortOrder.Ascending,
+                                SortOrder.Descending
+                            )
+                        ),
+                        "Text2",
+                        SortByColumns(
+                            Filter(
+                                Leaves,
+                                Substitute(
+                                    Dropdown1_5.SelectedText.Value,
+                                    "All Leaves Type",
+                                    ""
+                                ) in 'Select Type'.Value,
+                                Substitute(
+                                    Dropdown1_6.Selected.Value,
+                                    "All Departments",
+                                    ""
+                                ) in Department.Value,
+                                Substitute(
+                                    Dropdown1_7.Selected.Value,
+                                    "All Status",
+                                    ""
+                                ) in 'Leave Status'.Value,
+                                Substitute(
+                                    Dropdown1_4.Selected.Value,
+                                    "All Leaves",
+                                    ""
+                                ) in 'Leave Type'.Value,
+                                Or(
+                                    TextInput1_1.Text in Title,
+                                    TextInput1_1.Text in Manager
+                                )
+                            ),
+                            SortColName,
+                            If(
+                                SortDescendingApproverType,
+                                SortOrder.Ascending,
+                                SortOrder.Descending
+                            )
+                        ),
+                        "StartDate",
+                        Sort(
+                            Filter(
+                                Leaves,
+                                Substitute(
+                                    Dropdown1_5.SelectedText.Value,
+                                    "All Leaves Type",
+                                    ""
+                                ) in 'Select Type'.Value,
+                                Substitute(
+                                    Dropdown1_6.Selected.Value,
+                                    "All Departments",
+                                    ""
+                                ) in Department.Value,
+                                Substitute(
+                                    Dropdown1_7.Selected.Value,
+                                    "All Status",
+                                    ""
+                                ) in 'Leave Status'.Value,
+                                Substitute(
+                                    Dropdown1_4.Selected.Value,
+                                    "All Leaves",
+                                    ""
+                                ) in 'Leave Type'.Value,
+                                Or(
+                                    TextInput1_1.Text in Title,
+                                    TextInput1_1.Text in Manager
+                                )
+                            ),
+                            Value('Start Date'),
+                            If(
+                                SortDescendingStartDate,
+                                SortOrder.Ascending,
+                                SortOrder.Descending
+                            )
+                        ),
+                        "EndDate",
+                        Sort(
+                            Filter(
+                                Leaves,
+                                Substitute(
+                                    Dropdown1_5.SelectedText.Value,
+                                    "All Leaves Type",
+                                    ""
+                                ) in 'Select Type'.Value,
+                                Substitute(
+                                    Dropdown1_6.Selected.Value,
+                                    "All Departments",
+                                    ""
+                                ) in Department.Value,
+                                Substitute(
+                                    Dropdown1_7.Selected.Value,
+                                    "All Status",
+                                    ""
+                                ) in 'Leave Status'.Value,
+                                Substitute(
+                                    Dropdown1_4.Selected.Value,
+                                    "All Leaves",
+                                    ""
+                                ) in 'Leave Type'.Value,
+                                Or(
+                                    TextInput1_1.Text in Title,
+                                    TextInput1_1.Text in Manager
+                                )
+                            ),
+                            Value('End Date'),
+                            If(
+                                SortDescendingEndDate,
+                                SortOrder.Ascending,
+                                SortOrder.Descending
+                            )
+                        ),
+                        "Days",
+                        Sort(
+                            Filter(
+                                Leaves,
+                                Substitute(
+                                    Dropdown1_5.SelectedText.Value,
+                                    "All Leaves Type",
+                                    ""
+                                ) in 'Select Type'.Value,
+                                Substitute(
+                                    Dropdown1_6.Selected.Value,
+                                    "All Departments",
+                                    ""
+                                ) in Department.Value,
+                                Substitute(
+                                    Dropdown1_7.Selected.Value,
+                                    "All Status",
+                                    ""
+                                ) in 'Leave Status'.Value,
+                                Substitute(
+                                    Dropdown1_4.Selected.Value,
+                                    "All Leaves",
+                                    ""
+                                ) in 'Leave Type'.Value,
+                                Or(
+                                    TextInput1_1.Text in Title,
+                                    TextInput1_1.Text in Manager
+                                )
+                            ),
+                            Value('No Of Days'),
+                            If(
+                                SortDays,
+                                SortOrder.Ascending,
+                                SortOrder.Descending
+                            )
+                        ),
+                        "Status",
+                        Sort(
+                            Filter(
+                                Leaves,
+                                Substitute(
+                                    Dropdown1_5.SelectedText.Value,
+                                    "All Leaves Type",
+                                    ""
+                                ) in 'Select Type'.Value,
+                                Substitute(
+                                    Dropdown1_6.Selected.Value,
+                                    "All Departments",
+                                    ""
+                                ) in Department.Value,
+                                Substitute(
+                                    Dropdown1_7.Selected.Value,
+                                    "All Status",
+                                    ""
+                                ) in 'Leave Status'.Value,
+                                Substitute(
+                                    Dropdown1_4.Selected.Value,
+                                    "All Leaves",
+                                    ""
+                                ) in 'Leave Type'.Value,
+                                Or(
+                                    TextInput1_1.Text in Title,
+                                    TextInput1_1.Text in Manager
+                                )
+                            ),
+                            'Leave Status'.Value,
+                            If(
+                                SortStatus,
+                                SortOrder.Ascending,
+                                SortOrder.Descending
+                            )
+                        ),
+                        "Leave Type Pl",
+                        Sort(
+                            Filter(
+                                Leaves,
+                                Substitute(
+                                    Dropdown1_5.SelectedText.Value,
+                                    "All Leaves Type",
+                                    ""
+                                ) in 'Select Type'.Value,
+                                Substitute(
+                                    Dropdown1_6.Selected.Value,
+                                    "All Departments",
+                                    ""
+                                ) in Department.Value,
+                                Substitute(
+                                    Dropdown1_7.Selected.Value,
+                                    "All Status",
+                                    ""
+                                ) in 'Leave Status'.Value,
+                                Substitute(
+                                    Dropdown1_4.Selected.Value,
+                                    "All Leaves",
+                                    ""
+                                ) in 'Leave Type'.Value,
+                                Or(
+                                    TextInput1_1.Text in Title,
+                                    TextInput1_1.Text in Manager
+                                )
+                            ),
+                            'Leave Type'.Value,
+                            If(
+                                SortLeaveType,
+                                SortOrder.Ascending,
+                                SortOrder.Descending
+                            )
+                        ),
+                        "Department",
+                        Sort(
+                            Filter(
+                                Leaves,
+                                Substitute(
+                                    Dropdown1_5.SelectedText.Value,
+                                    "All Leaves Type",
+                                    ""
+                                ) in 'Select Type'.Value,
+                                Substitute(
+                                    Dropdown1_6.Selected.Value,
+                                    "All Departments",
+                                    ""
+                                ) in Department.Value,
+                                Substitute(
+                                    Dropdown1_7.Selected.Value,
+                                    "All Status",
+                                    ""
+                                ) in 'Leave Status'.Value,
+                                Substitute(
+                                    Dropdown1_4.Selected.Value,
+                                    "All Leaves",
+                                    ""
+                                ) in 'Leave Type'.Value,
+                                Or(
+                                    TextInput1_1.Text in Title,
+                                    TextInput1_1.Text in Manager
+                                )
+                            ),
+                            Department.Value,
+                            If(
+                                SortDepartment,
+                                SortOrder.Ascending,
+                                SortOrder.Descending
+                            )
+                        )
+                    )
+                Layout: =Layout.Vertical
+                LoadingSpinner: =LoadingSpinner.Data
+                TemplateFill: |+
+                    =Switch(
+                        ThisItem.'Leave Status'.Value,
+                        "Approved",
+                        Color.LightGreen,
+                        "Rejected",
+                        Color.Red
+                    ,
+                    If(ThisItem.IsSelected, RGBA(224, 224, 224, 100), RGBA(224, 224, 224, 0))
+                    )
+                    
+                TemplateSize: =98
+                Width: =1322
+                Y: =105
+                ZIndex: =21
+
+                Label68_4 As label:
+                    Height: =60
+                    OnSelect: =Select(Parent)
+                    Text: =ThisItem.Title
+                    Width: =180
+                    X: =10
+                    Y: =20
+                    ZIndex: =1
+
+                Label69_4 As label:
+                    Height: =Label68_4.Height
+                    OnSelect: =Select(Parent)
+                    Text: =ThisItem.Department.Value
+                    Width: =130
+                    X: =Label74_4.Width+Label74_4.X
+                    Y: =20
+                    ZIndex: =2
+
+                Label70_4 As label:
+                    Height: =Label68_4.Height
+                    OnSelect: =Select(Parent)
+                    Text: =ThisItem.'Start Date'
+                    Width: =95
+                    X: =Label78_4.X+Label78_4.Width
+                    Y: =20
+                    ZIndex: =3
+
+                Label71_4 As label:
+                    Height: =Label68_4.Height
+                    OnSelect: =Select(Parent)
+                    Text: =ThisItem.'End Date'
+                    Width: =120
+                    X: =Label70_4.X+Label70_4.Width
+                    Y: =20
+                    ZIndex: =4
+
+                Label72_4 As label:
+                    Height: =Label68_4.Height
+                    OnSelect: =Select(Parent)
+                    Text: =ThisItem.'No Of Days'
+                    Width: =100
+                    X: =Label71_4.X+Label71_4.Width
+                    Y: =20
+                    ZIndex: =5
+
+                Label73_4 As label:
+                    Height: =Label68_4.Height
+                    OnSelect: =Select(Parent)
+                    Text: =ThisItem.'Leave Status'.Value
+                    Width: =90
+                    X: =Label72_4.X+Label72_4.Width
+                    Y: =20
+                    ZIndex: =6
+
+                Label74_4 As label:
+                    Height: =Label68_4.Height
+                    OnSelect: =Select(Parent)
+                    Text: =ThisItem.'Leave Type'.Value
+                    X: =Label73_4.X+Label73_4.Width
+                    Y: =20
+                    ZIndex: =7
+
+                Label75_4 As label:
+                    Height: =Label68_4.Height
+                    OnSelect: =Select(Parent)
+                    Text: =ThisItem.'Select Type'.Value
+                    Width: =180
+                    X: =135
+                    Y: =20
+                    ZIndex: =8
+
+                Label78_4 As label:
+                    Height: =Label68_4.Height
+                    OnSelect: =Select(Parent)
+                    Text: =ThisItem.Manager
+                    Width: =100
+                    X: =356
+                    Y: =16
+                    ZIndex: =11
+
+                Button6_4 As button:
+                    Height: =35
+                    OnSelect: |-
+                        =EditForm(Form4);
+                        Navigate(
+                            Screen2,
+                            ScreenTransition.Cover,
+                            {SelectedItem: Gallery12_4.Selected}
+                        )
+                    Text: ="Edit"
+                    Width: =52
+                    X: =1155
+                    Y: =41
+                    ZIndex: =12
+
+                Button7_2 As button:
+                    Height: =35
+                    OnSelect: |-
+                        =Select(Parent);
+                        UpdateContext({showDeletePopup:true})
+                        //Remove(Leaves,ThisItem)
+                    Text: ="Delete"
+                    Width: =79
+                    X: =1219
+                    Y: =41
+                    ZIndex: =13
+
+    Icon1_3 As icon.Home:
+        Fill: =RGBA(232, 244, 217, 1)
+        Icon: =Icon.Home
+        OnSelect: =Navigate(Screen1)
+        X: =1202
+        Y: =12
+        ZIndex: =4
+
+    Icon2_3 As icon.BackArrow:
+        Fill: =RGBA(232, 244, 217, 1)
+        Icon: =Icon.BackArrow
+        OnSelect: =Back(ScreenTransition.Cover)
+        X: =54
+        Y: =12
+        ZIndex: =5
+
+    TextInput1_1 As text:
+        Default: =""
+        X: =33
+        Y: =98
+        ZIndex: =6
+
+    Dropdown1_4 As dropdown:
+        Items: =LeaveType.Value
+        Width: =250
+        X: =361
+        Y: =98
+        ZIndex: =7
+
+    Dropdown1_5 As dropdown:
+        Items: =PlannedUnplannedLeave.Value
+        Width: =250
+        X: =618
+        Y: =98
+        ZIndex: =8
+
+    Dropdown1_6 As dropdown:
+        Items: =Department.Value
+        Width: =250
+        X: =866
+        Y: =98
+        ZIndex: =9
+
+    Dropdown1_7 As dropdown:
+        Items: =Status.Value
+        Width: =250
+        X: =1116
+        Y: =98
+        ZIndex: =10
+
+    Button5_1 As button:
+        Height: =42
+        OnSelect: |-
+            =NewForm(Form4);
+            Navigate(Screen2,ScreenTransition.Fade)
+        Text: ="Add"
+        Width: =96
+        X: =1216
+        Y: =138
+        ZIndex: =11
+
+    Icon3_17 As icon.ArrowsUpDown:
+        Height: =29
+        Icon: =Icon.Sort
+        OnSelect: |-
+            =UpdateContext({
+                SortColPref:"Text1",
+                SortColName:"Title",
+                SortColType:!SortColType
+            })
+        Width: =58
+        X: =128
+        Y: =212
+        ZIndex: =12
+
+    DeletePopUp_1 As DeletePopUp:
+        Height: =528
+        OnCancelClick: |-
+            =UpdateContext({showDeletePopup:false})
+        OnDeleteClick: |-
+            =Remove(Leaves,Gallery12_4.Selected);
+            UpdateContext({showDeletePopup:false});
+            Notify("Record deleted successfully",NotificationType.Success,1000)
+        Visible: =showDeletePopup
+        Width: =684
+        X: =279
+        Y: =39
+        ZIndex: =14
+
+    Label3 As label:
+        Align: =Align.Center
+        Color: =RGBA(141, 198, 63, 1)
+        Height: =36
+        Text: =$"Welcome"
+        Width: =134
+        X: =960
+        Y: =12
+        ZIndex: =15
+
+    Label4 As label:
+        Color: =RGBA(141, 198, 63, 1)
+        Height: =28
+        Text: =loggedUser
+        Width: =168
+        X: =960
+        Y: =48
+        ZIndex: =16
+

@@ -1,0 +1,153 @@
+Screen5 As screen:
+
+    DataTable1 As dataTable.datatable:
+        BorderStyle: =BorderStyle.Solid
+        DisplayMode: =DisplayMode.Edit
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =656
+        Items: =Leaves
+        Width: =1336
+        X: =24
+        Y: =87
+        ZIndex: =1
+
+        Title_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Title"
+            FieldName: ="Title"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =1
+            Text: =ThisItem.Title
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+        Department_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Department"
+            FieldName: ="Department"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =2
+            Text: =ThisItem.Department.Value
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =2
+
+        "'Start Date_Column1' As dataTableColumn.textualColumn":
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Start Date"
+            FieldName: ="Start_x0020_Date"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =3
+            Text: =ThisItem.'Start Date'
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =3
+
+        "'End Date_Column1' As dataTableColumn.textualColumn":
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="End Date"
+            FieldName: ="End_x0020_Date"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =4
+            Text: =ThisItem.'End Date'
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =4
+
+        "'No Of Days_Column1' As dataTableColumn.textualColumn":
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="No Of Days"
+            FieldName: ="No_x0020_Of_x0020_Days"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =5
+            Text: =ThisItem.'No Of Days'
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =5
+
+        "'Leave Status_Column1' As dataTableColumn.textualColumn":
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Leave Status"
+            FieldName: ="Leave_x0020_Status"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =6
+            Text: =ThisItem.'Leave Status'.Value
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =6
+
+        "'Leave Type_Column1' As dataTableColumn.textualColumn":
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Leave Type"
+            FieldName: ="Leave_x0020_Type"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =7
+            Text: =ThisItem.'Leave Type'.Value
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =7
+
+        "'Select Type_Column1' As dataTableColumn.textualColumn":
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Select Type"
+            FieldName: ="Select_x0020_Type"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =8
+            Text: =ThisItem.'Select Type'.Value
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =8
+
+        "'Manager Comments_Column1' As dataTableColumn.textualColumn":
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Manager Comments"
+            FieldName: ="Manager_x0020_Comments"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =9
+            Text: =ThisItem.'Manager Comments'
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =9
+
+        Manager_Column1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Manager"
+            FieldName: ="Manager"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =10
+            Text: =ThisItem.Manager
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =10
+

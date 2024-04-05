@@ -1,0 +1,41 @@
+Screen1 As screen:
+
+    Button1 As button:
+        Height: =201
+        OnSelect: |
+            =
+            NewForm(Form4);
+            Navigate(Screen2,ScreenTransition.Fade)
+        Text: ="Apply Leave"
+        Width: =280
+        X: =539
+        Y: =126
+        ZIndex: =1
+
+    Button4 As button:
+        Height: =201
+        OnSelect: =Navigate(Screen3_2)
+        Text: ="View MyApplications"
+        Width: =280
+        X: =126
+        Y: =503
+        ZIndex: =2
+
+    Button8 As button:
+        Height: =210
+        OnSelect: =Navigate(Screen3_1,ScreenTransition.Cover)
+        Text: ="Leave Request Assigned To me"
+        Width: =252
+        X: =539
+        Y: =503
+        ZIndex: =3
+
+    Button10 As button:
+        Height: =204
+        OnSelect: =Navigate(Screen4,ScreenTransition.None)
+        Text: ="Login"
+        Width: =250
+        X: =126
+        Y: =144
+        ZIndex: =4
+

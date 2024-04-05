@@ -1,0 +1,319 @@
+Screen4 As screen:
+    Fill: =RGBA(255, 255, 255, 1)
+
+    RegistrationForm As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =12
+
+        TextInput2 As text:
+            Default: =""
+            Height: =62
+            HintText: ="Enter full name"
+            Size: =18
+            Visible: =varRegistrationForm
+            Width: =474
+            X: =342
+            Y: =105
+            ZIndex: =2
+
+        TextInput3 As text:
+            Default: =""
+            Height: =66
+            HintText: ="Enter email"
+            Visible: =varRegistrationForm
+            Width: =474
+            X: =342
+            Y: =268
+            ZIndex: =3
+
+        TextInput4 As text:
+            Default: =""
+            Height: =74
+            HintText: ="Confirm email"
+            Visible: =varRegistrationForm
+            Width: =474
+            X: =342
+            Y: =366
+            ZIndex: =4
+
+        TextInput5 As text:
+            Default: =""
+            Height: =74
+            HintText: ="Password"
+            Mode: =TextMode.Password
+            Visible: =varRegistrationForm
+            Width: =486
+            X: =342
+            Y: =478
+            ZIndex: =5
+
+        Radio1 As radio:
+            Height: =101
+            Items: =["Male","Female"]
+            Visible: =varRegistrationForm
+            Width: =192
+            X: =342
+            Y: =167
+            ZIndex: =6
+
+        TextInput6 As text:
+            Default: =""
+            Height: =80
+            HintText: ="Confirm password"
+            Mode: =TextMode.Password
+            Visible: =varRegistrationForm
+            Width: =486
+            X: =342
+            Y: =582
+            ZIndex: =7
+
+        Button11 As button:
+            Fill: =RGBA(168, 0, 0, 1)
+            Height: =42
+            OnSelect: |-
+                =Set(varRegistrationForm,false);
+                Set(varLoginForm,true);
+                Set(regErrorMessage,false)
+            Text: ="Cancel"
+            Visible: =varRegistrationForm
+            X: =342
+            Y: =696
+            ZIndex: =8
+
+        Button12 As button:
+            Fill: =RGBA(9, 33, 98, 1)
+            OnSelect: |-
+                =If(
+                    (!IsBlank(TextInput2.Text) && !IsBlank(TextInput3.Text) && !IsBlank(TextInput4.Text) && !IsBlank(TextInput5.Text) && !IsBlank(TextInput3.Text) && !IsBlank(Radio1.Selected)) && (TextInput3.Text = TextInput4.Text) && (TextInput5.Text = TextInput6.Text),
+                    Patch(
+                        Users,
+                        Defaults(Users),
+                        {
+                             Title:TextInput2.Text,
+                            'User Id': TextInput3.Text,
+                            Password: TextInput5.Text,
+                            Gender: Radio1.Selected.Value
+                        }
+                    );
+                    Set(
+                        varRegistrationForm,
+                        false
+                    );
+                    Set(
+                        varLoginForm,
+                        true
+                    );
+                    Set(
+                        regErrorMessage,
+                        false
+                    ),
+                    Set(
+                        regErrorMessage,
+                        true
+                    )
+                )
+            Text: ="Submit"
+            Visible: =varRegistrationForm
+            X: =656
+            Y: =698
+            ZIndex: =9
+
+        Label7 As label:
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            Fill: =RGBA(9, 33, 98, 1)
+            Height: =70
+            Size: =25
+            Text: ="Registration Form"
+            Underline: =true
+            Visible: =varRegistrationForm
+            Width: =1316
+            X: =27
+            Y: =18
+            ZIndex: =10
+
+        Label9 As label:
+            Color: =RGBA(184, 0, 0, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =70
+            Size: =17
+            Text: ="Invalid details"
+            Visible: =regErrorMessage
+            Width: =174
+            X: =1020
+            Y: =129
+            ZIndex: =11
+
+        Icon5 As icon.Warning:
+            Color: =RGBA(184, 0, 0, 1)
+            Height: =48
+            Icon: =Icon.Warning
+            Visible: =regErrorMessage
+            X: =942
+            Y: =140
+            ZIndex: =12
+
+    Label10 As label:
+        Color: =RGBA(184, 0, 0, 1)
+        Height: =54
+        Size: =15
+        Text: ="Please check user id"
+        Visible: =forgetError
+        Width: =261
+        X: =504
+        Y: =158
+        ZIndex: =22
+
+    LoginForm As group:
+        Height: =5
+        Width: =5
+        X: =60
+        Y: =60
+        ZIndex: =22
+
+        Label2 As label:
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            Fill: =RGBA(0, 18, 107, 1)
+            Height: =67
+            Size: =25
+            Text: ="Login"
+            Visible: =varLoginForm
+            Width: =1303
+            X: =40
+            Y: =18
+            ZIndex: =13
+
+        TextInput7 As text:
+            Default: =""
+            Height: =68
+            HintText: ="User Id"
+            OnChange: =Set(forgetError,false)
+            OnSelect: =Set(forgetError,false)
+            Visible: =varLoginForm
+            Width: =426
+            X: =444
+            Y: =254
+            ZIndex: =14
+
+        TextInput8 As text:
+            Default: =""
+            Height: =68
+            HintText: ="Password"
+            Visible: =varLoginForm
+            Width: =426
+            X: =444
+            Y: =390
+            ZIndex: =15
+
+        Button13 As button:
+            Fill: =RGBA(0, 18, 107, 1)
+            Height: =41
+            OnSelect: |-
+                =Set(
+                    loggedUser,
+                    LookUp(
+                        Users,
+                        Password = TextInput8.Text && 'User Id' = TextInput7.Text
+                        
+                    ).Title
+                );
+                If(
+                    !IsBlank(
+                        loggedUser
+                    ),
+                    Notify(
+                        "Successfully logged in",
+                        NotificationType.Success,
+                        1000
+                    );
+                    Navigate(
+                        Screen3_2,
+                        ScreenTransition.Fade
+                    );
+                    Set(
+                        logErrorMessage,
+                        false
+                    ),
+                    Set(
+                        logErrorMessage,
+                        true
+                    )
+                )
+            Text: ="Login"
+            Visible: =varLoginForm
+            X: =699
+            Y: =506
+            ZIndex: =16
+
+        Label5 As label:
+            Color: =RGBA(184, 0, 0, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =62
+            Size: =20
+            Text: ="If not registered ?"
+            Visible: =varLoginForm
+            Width: =326
+            X: =549
+            Y: =591
+            ZIndex: =17
+
+        Button14 As button:
+            Fill: =RGBA(184, 0, 0, 1)
+            Height: =41
+            OnSelect: |-
+                =Set(varLoginForm,false);
+                Set(varRegistrationForm,true);
+                Set(regErrorMessage,false);
+                Set(logErrorMessage,false);
+                Set(forgetError,false)
+            Text: ="Register now"
+            Visible: =varLoginForm
+            Width: =190
+            X: =562
+            Y: =661
+            ZIndex: =18
+
+        Icon6 As icon.Warning:
+            Color: =RGBA(184, 0, 0, 1)
+            Height: =59
+            Icon: =Icon.Warning
+            Visible: =logErrorMessage
+            Width: =58
+            X: =444
+            Y: =143
+            ZIndex: =19
+
+        Label6 As label:
+            Color: =RGBA(184, 0, 0, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =53
+            Size: =18
+            Text: ="Incorrect username or password"
+            Visible: =logErrorMessage
+            Width: =336
+            X: =523
+            Y: =143
+            ZIndex: =20
+
+        Label8 As label:
+            Color: =RGBA(246, 88, 16, 1)
+            Height: =41
+            OnSelect: |
+                =Set(forgetPassword,LookUp(Users,'User Id'=TextInput7.Text).Password);
+                /*If(IsBlank(TextInput7.Text)||IsBlank(forgetPassword),Set(forgetError,true),
+                Office365Outlook.SendEmail(TextInput7.Text,"Foret Password",$"Your Password :{forgetPassword}");Set(forgetError,false);Set(forgetPassword,Blank()))*/
+                If(IsBlank(TextInput7.Text)||IsBlank(forgetPassword),Set(forgetError,true),
+                Sendanemailnotification.Run(TextInput7.Text,forgetPassword);Set(forgetError,false);Set(forgetPassword,Blank()))
+            Size: =18
+            Text: ="Forget Password"
+            Underline: =true
+            Visible: =varLoginForm
+            Width: =212
+            X: =431
+            Y: =497
+            ZIndex: =21
+
