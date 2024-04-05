@@ -39,3 +39,16 @@ Screen1 As screen:
         Y: =144
         ZIndex: =4
 
+    Label11 As label:
+        Align: =Align.Center
+        Color: =RGBA(241, 244, 249, 1)
+        Fill: =RGBA(0, 18, 107, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =96
+        Size: =20
+        Text: ="Dahboard"
+        Width: =1329
+        X: =20
+        Y: =18
+        ZIndex: =5
+
